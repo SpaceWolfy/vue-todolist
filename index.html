@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css" />
+    <!-- Icon -->
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.7.1/css/all.css"
+      integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
+      crossorigin="anonymous"
+    />
+    <!-- Vue.JS - Sviluppatori  -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <div class="body-container">
+        <div class="white-panel">
+          <header>
+            <input
+              v-model="addNewItem"
+              @keyup.enter="addItemToList"
+              maxlength="70"
+            />
+            <div class="btn-add" @click="addItemToList">Add Task</div>
+          </header>
+          <div class="list-container">
+            <ul>
+              <li
+                v-for="(item, i) in list"
+                v-if="item.done"
+                class="deleted-from-list"
+              >
+                <div class="text" @click="cancelItemInList(i)">
+                  {{item.text}}
+                </div>
+                <div>
+                  <i
+                    class="fas fa-backspace"
+                    @click="removeItemFromList(i)"
+                  ></i>
+                </div>
+              </li>
+
+              <li v-else="item.done">
+                <div class="text" @click="cancelItemInList(i)">
+                  {{item.text}}
+                </div>
+                <div>
+                  <i
+                    class="fas fa-backspace"
+                    @click="removeItemFromList(i)"
+                  ></i>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="js/vue.js"></script>
+  </body>
+</html>
