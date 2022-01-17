@@ -21,7 +21,6 @@ new Vue({
     ],
     //per l'input
     addNewItem: "",
-    conterClick: 0,
   },
   methods: {
     addItemToList: function () {
