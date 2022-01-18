@@ -31,24 +31,13 @@
           </header>
           <div class="list-container">
             <ul>
-              <li
-                v-for="(item, i) in list"
-                v-if="item.done"
-                class="deleted-from-list"
-              >
-                <div class="text" @click="cancelItemInList(i)">
-                  {{item.text}}
-                </div>
-                <div>
-                  <i
-                    class="fas fa-backspace"
-                    @click="removeItemFromList(i)"
-                  ></i>
-                </div>
-              </li>
-
-              <li v-else="item.done">
-                <div class="text" @click="cancelItemInList(i)">
+              <li v-for="(item, i) in list">
+                <!-- :class="item.done ? 'deleted-from-list' : ''" -->
+                <div
+                  class="text"
+                  @click="cancelItemInList(i)"
+                  :class="{'deleted-from-list' : item.done}"
+                >
                   {{item.text}}
                 </div>
                 <div>

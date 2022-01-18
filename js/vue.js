@@ -38,11 +38,12 @@ new Vue({
       this.list.splice(index, 1); //rimuove un elemento all'indice indicato
     },
     cancelItemInList: function (index) {
-      if (this.list[index].done) {
+      /* if (this.list[index].done) {
         this.list[index].done = false;
       } else {
         this.list[index].done = true;
-      }
+      } */
+      this.list[index].done = !this.list[index].done;
     },
   },
 });
